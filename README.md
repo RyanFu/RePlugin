@@ -1,83 +1,144 @@
-# RePlugin
+<p align="center">
+  <a href="https://github.com/Qihoo360/RePlugin/wiki">
+    <img alt="RePlugin Logo" src="https://github.com/Qihoo360/RePlugin/wiki/img/RePlugin.png" width="400"/>
+  </a>
+</p>
 
-首先感谢您关注RePlugin项目。目前RePlugin正通过严苛的**360安全及代码审核**（也是为了能用到更安全的方案），360手机卫士的团队成员在为开源前做最后的冲刺！
+[![license](http://img.shields.io/badge/license-Apache2.0-brightgreen.svg?style=flat)](https://github.com/Qihoo360/RePlugin/blob/master/LICENSE)
+[![Release Version](https://img.shields.io/badge/release-2.1.7-brightgreen.svg)](https://github.com/Qihoo360/RePlugin/wiki/%E5%8F%91%E8%A1%8C%E6%B3%A8%E8%AE%B0)
 
-但我们知道大家的期待。所以，我们不会等所有审核通过再发，而是每完成一个项目的审核，就**逐步**公开其成果（共5个步骤），直到**几天后的彻底开源**。因此，请大家**点击右上角的“Watch”，随时收到最新的进展**。在此感谢大家的理解和支持！
 
-此外，由于方案已经过验证，故**我们“不搞内测”，而是直接开源上线。您们拿到的，就是我们在用的**。
+## RePlugin —— A flexible, stable, easy-to-use Android Plug-in Framework
 
-开源进度：■■■■■■■■■■□□ **[ 95% ]**
+RePlugin is a complete Android plug-in solution which is suitable for general use.
 
-开源进展：**（1/5）公开大部分基础文档**
+（[文档，还是中文的好](./README_CN.md)）
 
-对了，祖传一个小技巧：听妈妈说，**加“Star”越多，开源进度越快哦（右上角）**。
+It is major strengths are:
+* **Extreme flexibility**: Apps do not need to be upgraded to support new components, **even brand new plug-ins**.
+* **Extraordinary stability**: With only **ONE** hook (ClassLoader), **NO BINDER HOOK**. RePlugin’s Crash ratio is **as low as Ten thousandth (0.01%)**. In addition, RePlugin is compatible with almost **ALL Android ROMs** in the market.
+* **Rich features**: RePlugin supports **almost all features seamlessly as an installed application**, including static Receiver, Task-Affinity, user-defined Theme, AppCompat, DataBinding, etc.
+* **Easy integration**: It takes only couple lines to access, whether plug-ins or main programs. 
+* **Mature management**:　RePlugin owns stable plug-in management solution which supports installation, upgrade, uninstallation and version management. Process communication, protocol versions and security check are also included. 
+* **Hundreds of millions support**: RePlugin possesses **hundreds of millions users from 360 MobileSafe.** After more than three-year verification, we guarantee the solution that Apps use is the most stable and suitable.
 
-- - -
+By the end of June 2017, RePlugin has already made some achievements:
 
-RePlugin是一套完整的、稳定的、适合全面使用的，占坑类插件化方案。其主要优势有：
-* **极其灵活**：主程序无需升级（无需在Manifest中预埋组件），即可支持新增的四大组件，甚至全新的插件
-* **非常稳定**：Hook点仅有一处（ClassLoader）。其崩溃率仅为“万分之一”，并完美兼容市面上近乎所有的Android ROM
-* **特性丰富**：支持近乎所有在“单品”开发时的特性。包括静态Receiver、Task-Affinity坑位、自定义Theme、进程坑位、AppCompat、DataBinding等
-* **易于集成**：无论插件还是主程序，只需“数行”就能完成接入
-* **进程任意**：可让各组件跑在UI、常驻，甚至是“**任意坑位进程**”
-* **自由隔离**：想隔离就隔离（如不稳定或占资源的插件，易于释放），不想隔离的模块就混用（如各种基础、UI插件，都跑在UI进程内，性能优异）
-* **管理成熟**：拥有成熟稳定的“插件管理方案”，支持插件安装、升级、卸载、版本管理，甚至包括进程通讯、协议版本、安全校验等
-* **数亿支撑**：有360手机卫士庞大的**数亿**用户做支撑，**三年多的残酷验证**，确保App用到的方案是最稳定、最适合使用的
+| Feature | Achievement |
+|:-------------:|:-------------:|
+| **Plug-in Number** | **103** |
+| **Ratio of plug-ins to applications** | **83%** |
+| **Version released pre year** | **596** |
+| **Crash** | **0.01%, Extraordinary stability** |
+| **First Release** | **2014** |
 
-截止2017年6月底，RePlugin的：
+At present, almost **all Apps with hundreds of millions users from 360, and many mainstream third-party Apps, are using RePlugin solution**. 
 
-* **插件数 已达102个**（其中，核心插件57个）
-* **插件占应用比 高达83%**（指把代码资源铺开，插件占整个应用的比例）
-* **年发版次数 高达596次**（平均每个工作日发版2-3次）
+### We support:
 
-目前360公司几乎**所有的亿级用户量的APP**，以及多款主流第三方APP，都采用了RePlugin方案。
+| Feature | Description |
+|:-------------:|:-------------:|
+| Components | **Activity, Service, Provider, Receiver(Including static)** |
+| Not need to upgrade when brand a new Plug-in | **Supported** |
+| Android Feature | **Supported almost all features** |
+| TaskAffinity & Multi-Process | **Perfect supported!** |
+| Support Plug-in Type | **Built-in (Only Two Step) and External(Download)** |
+| Plug-in Coupling | **Binder, Class Loader, Resources, etc.** |
+| Interprocess communication | **Sync, Async, Binder and Cross-plug-in broadcast** |
+| User-Defined Theme & AppComat | **Supported** |
+| DataBinding | **Supported** |
+| Safety check when installed | **Supported** |
+| Resources Solution | **Independent Resources + Context pass(No Adaptation ROM)** |
+| Android Version | **API Level 9 (Android 2.3 and above)** |
 
-支持Android 2.3+及以上版本
+## Our Vision
+Make RePlugin be used in all kinds of ordinary Apps; and provide stable, flexible, liberal plug-ins which adopt for both large and small projects.
 
-有关RePlugin的详细介绍，请[点击这里阅读《RePlugin 官方 WiKi》](https://github.com/Qihoo360/RePlugin/wiki)。
+## RePlugin Architecture
 
-## 愿景
-让插件化能**飞入寻常应用家**，做到稳定、灵活、自由，大小项目兼用。
+<p align="center">
+  <a href="https://github.com/Qihoo360/RePlugin/wiki">
+    <img alt="RePlugin Framework" src="https://github.com/Qihoo360/RePlugin/wiki/img/RePluginFramePic.jpeg" height="600" />
+  </a>
+</p>
 
-## 使用方法
+## How to Use RePlugin
+Using RePlugin is very simple. Under most conditions, using it is no different than developing an App.
 
-RePlugin的使用方法非常简单，大部分情况下和“单品”开发无异。
+If you are **the first-time user, please [click here to read Quick Start Guide(Chinese Version)](https://github.com/Qihoo360/RePlugin/wiki/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B).** Following our guide, you will learn more about RePlugin.
 
-若您是第一次接触RePlugin，则[请点击这里阅读《快速上手》](https://github.com/Qihoo360/RePlugin/wiki/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B)，跟随我们的指引，了解更多的内容。
+If you wish to **learn more gameplays about RePlugin, please [click here to read Step-by-step Tutorial(Chinese Version)](https://github.com/Qihoo360/RePlugin/wiki/%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B)**.
 
-若您想了解更多有关RePlugin的玩法，则[请点击这里阅读《详细教程》](https://github.com/Qihoo360/RePlugin/wiki/%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B)，了解更多好玩的玩法。
+If you want to **view RePlugin’s sample project, and learn concrete usage of the frame, please [click here to check Sample SC](https://github.com/Qihoo360/RePlugin/blob/master/replugin-sample)**.
 
-若您想看下RePlugin的Sample工程，进而了解框架的具体用法，则[请点击这里查看Sample源代码](https://github.com/Qihoo360/RePlugin/blob/master/replugin-sample)。
+If you **have any question, please [click here to read FAQ(Chinese Version)](https://github.com/Qihoo360/RePlugin/wiki/FAQ)**.
 
-## 已接入RePlugin的插件
 
-目前已有的插件，可以分为以下几类，供各App开发者参考：
-* **展示插件**：如**卫士首页**（是的，你没看错）、体检、信息流等
-* **业务插件**：如清理、骚扰拦截、悬浮窗等
-* **合作插件**：如程序锁、免费WiFi、安全桌面等
-* **后台插件**：如Push、服务管理、Protobuf等
-* **基础插件**：如安全WebView、分享、定位等
+## These apps are using RePlugin
 
-截止2017年6月底，这样的插件，我们有**102**个。衷心希望您能成为这个数字中的新的一员！
+<table align="center">
+    <tr align="center">
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/mobilesafe.png" width="80" height="80"/></td>
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/appstore.png" width="80" height="80"/></td>
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/browser.png" width="80" height="80"/></td>
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/camera.png" width="80" height="80"/></td>
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/clean.png" width="80" height="80"/></td>
+    </tr>
+    <tr align="center">
+        <td><b><a href="https://shouji.360.cn/index.html">360 Mobile Safe</a></b></td>
+        <td><b><a href="http://sj.360.cn/index.html">360 App Store</a></b></td>
+        <td><b><a href="http://mse.360.cn/m/index.html">360 Mobile Browser</a></b></td>
+        <td><b><a href="http://xj.huajiao.com/xji/home/pc">HuaJiao Camera</a></b></td>
+        <td><b><a href="https://shouji.360.cn/360cleandroid/index.html">360 Clean Master</a></b></td>
+    </tr>
+    <tr align="center">
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/movie.png" width="80" height="80"/></td>
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/jieqianba.png" width="80" height="80"/></td>
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/haitao1hao.png" width="80" height="80"/></td>
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/huaruntong.png" width="80" height="80"/></td>
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/jielema.png" width="80" height="80"/></td>
+    </tr>
+    <tr align="center">
+        <td><b><a href="http://www.360kan.com/appdownload">360 Kan Movie</a></b></td>
+        <td><b><a href="">JieQianBa</a></b></td>
+        <td><b><a href="http://www.1haitao.com/">1 HaiTao</a></b></td>
+        <td><b><a href="http://www.huaruntong.com/">HuaRun Tong</a></b></td>
+        <td><b><a href="http://www.jielem.com/">JieLeMa</a></b></td>
+    </tr>
+    <tr align="center">
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/os.png" width="80" height="80"/></td>
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/jietiao.png" width="80" height="80"/></td>
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/yourapps.png" width="80" height="80"/></td>
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/yourapps.png" width="80" height="80"/></td>
+        <td><img src="https://github.com/Qihoo360/RePlugin/wiki/img/apps/yourapps.png" width="80" height="80"/></td>
+    </tr>
+    <tr align="center">
+        <td><b><a href="http://www.qiku.com/product/360os2/index.html">360OS App</a></b></td>
+        <td><b><a href="https://www.360jie.com.cn/">360 Loan</a></b></td>
+        <td><b><a href="">(Internal App)</a></b></td>
+        <td><b><a href="">(Internal App)</a></b></td>
+        <td><b><a href="">(Internal App)</a></b></td>
+    </tr>
+</table>
 
-## 贡献自己的力量
+## Plug-ins Accessed in RePlugin
 
-我们欢迎任何形式的贡献，并致以诚挚的感谢！
+For your reference, plug-ins accessed can be classified into following categories: 
 
-你可以贡献代码、提出问题、编写文档等。有关“贡献”相关的内容，请[点击这里阅读《贡献力量》](https://github.com/Qihoo360/RePlugin/wiki/%E8%B4%A1%E7%8C%AE%E5%8A%9B%E9%87%8F)
+* **Expo plug-ins**: Safe Home Page, physical examination, information flow, etc. 
+* **Business plug-ins**: cleaning, disturbance intercept, floating window, etc.
+* **Cooperation plug-ins**: App Lock, free Wi-Fi, security desktop, etc.
+* **Background plug-ins**: Push, service management, Protobuf, etc.
+* **Base plug-ins**: Security WebView, share, location service, etc.
+
+By the end of June 2017, we already have 102 plug-ins like these. We look forward to you becoming a part of RePlugin family!
+
+## Contribute Your Share
+We sincerely welcome and appreciate your contribution of any kind. You can submit code, raise suggestions, write documentation, etc. For more information, please [click here to read Contribute Your Share(Chinese Version)](https://github.com/Qihoo360/RePlugin/wiki/%E8%B4%A1%E7%8C%AE%E5%8A%9B%E9%87%8F).
+
 
 ## License
 
 RePlugin is [Apache v2.0 licensed](./LICENSE).
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+(Thanks Xiezihan（谢子晗） for providing the translations.)
